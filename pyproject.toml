@@ -6,6 +6,7 @@ authors = ["Marcus Pereira <marcus@negros.dev>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+Flask = "^2.1.2"
 
 [tool.poetry.dev-dependencies]
 
