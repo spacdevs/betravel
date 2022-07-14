@@ -7,9 +7,12 @@ authors = ["Marcus Pereira <marcus@negros.dev>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 Flask = "^2.1.2"
+urllib3 = "^1.26.10"
 
 [tool.poetry.dev-dependencies]
 python-dotenv = "^0.20.0"
+splinter = {version = "^0.18.1", extras = ["flask"]}
+pytest = "^7.1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
