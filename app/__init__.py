@@ -1,5 +1,4 @@
 from flask import Flask
-from app import routes
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -10,6 +9,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///development.sqlite'
     db.init_app(app)
 
+    from app import routes
     routes.init_app(app)
 
     return app

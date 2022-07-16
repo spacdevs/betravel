@@ -1,3 +1,6 @@
+from app.models import Post
+from app import db
+
 def test_visitors_view_home_page_successfully(browser):
     browser.visit("/")
 
@@ -14,3 +17,13 @@ def test_visitors_view_menu(browser):
     assert browser.is_text_present("Entrar")
     assert browser.is_text_present("Olá, Marcus Pereira")
     assert browser.is_text_present("Sair")
+
+def test_and_view_posts(browser):
+    post = Post(title='Sobrevivendo ao frio da alemanha em Janeiro',
+                published=True, text='Estava muito frio...')
+    db.session.add(post)
+    db.session.commit()
+    
+    browser.visit("/")
+
+    assert browser.is_text_present("Sobrevivendo ao frio da alemanha em Janeiro")
