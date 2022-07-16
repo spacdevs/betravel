@@ -26,7 +26,15 @@ def test_and_view_posts(browser):
 
     assert browser.is_text_present(post.title)
 
-def test_and_not_view_posts(browser):   
+def test_and_not_view_unplushed_posts(browser):
+    post = PostFactory(title="Visitando a Apple em New York", published=False)
+
+    browser.visit(url_for('home.index'))
+
+    assert browser.is_text_not_present("Visitando a Apple em New York")
+    assert browser.is_text_present("Sem posts cadastrado no momento")
+
+def test_and_not_view_posts_without_registered(browser):
     browser.visit(url_for('home.index'))
 
     assert browser.is_text_present("Sem posts cadastrado no momento")

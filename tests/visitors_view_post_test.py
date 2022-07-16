@@ -1,9 +1,13 @@
-from app.models import Post
-from app import db
+from flask import url_for
+
+from tests.factories.post import PostFactory
 
 def test_successfully(browser):
-    browser.visit("/")
+    post = PostFactory(title='Sobrevivendo ao frio da alemanha em Janeiro')
+
+    browser.visit(url_for('home.index'))
+    browser.links.find_by_text('Sobrevivendo ao frio da alemanha em Janeiro').click()
 
     assert browser.status_code == 200
-    assert browser.is_text_present("Viagens")
-    assert browser.is_text_present("&COPY; Todos os direitos reservados. Be Travel 2022")
+    assert browser.is_text_present(post.title)
+    assert browser.is_text_present(post.text)
