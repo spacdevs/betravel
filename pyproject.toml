@@ -14,6 +14,7 @@ Flask-SQLAlchemy = "^2.5.1"
 python-dotenv = "^0.20.0"
 splinter = {version = "^0.18.1", extras = ["flask"]}
 pytest = "^7.1.2"
+Faker = "^13.15.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
