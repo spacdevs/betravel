@@ -1,7 +1,12 @@
+from dotenv import load_dotenv
 from pytest import fixture
 from splinter import Browser
 
-from app import create_app, db
+from app import create_app
+from app.extensions import db
+
+load_dotenv('.test.env')
+
 
 @fixture
 def browser():
