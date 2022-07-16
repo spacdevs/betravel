@@ -27,3 +27,8 @@ def test_and_view_posts(browser):
     browser.visit("/")
 
     assert browser.is_text_present("Sobrevivendo ao frio da alemanha em Janeiro")
+
+def test_and_not_view_posts(browser):   
+    browser.visit("/")
+
+    assert browser.is_text_present("Sem posts cadastrado no momento")
