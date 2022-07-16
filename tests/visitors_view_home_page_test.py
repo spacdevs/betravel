@@ -1,8 +1,6 @@
 from flask import url_for
-from faker import Faker
 
-from app.models import Post
-from app import db
+from tests.factories.post import PostFactory
 
 def test_visitors_view_home_page_successfully(browser):
     browser.visit(url_for('home.index'))
@@ -22,11 +20,7 @@ def test_visitors_view_menu(browser):
     assert browser.is_text_present("Sair")
 
 def test_and_view_posts(browser):
-    fake = Faker()
-    post = Post(title=fake.paragraph(),
-                published=True, text='Estava muito frio...')
-    db.session.add(post)
-    db.session.commit()
+    post = PostFactory()
 
     browser.visit(url_for('home.index'))
 
