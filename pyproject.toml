@@ -8,6 +8,7 @@ authors = ["Marcus Pereira <marcus@negros.dev>"]
 python = "^3.10"
 Flask = "^2.1.2"
 urllib3 = "^1.26.10"
+Flask-SQLAlchemy = "^2.5.1"
 
 [tool.poetry.dev-dependencies]
 python-dotenv = "^0.20.0"
