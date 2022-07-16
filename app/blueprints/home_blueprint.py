@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 home = Blueprint('home', __name__)
 
 @home.get('/')
 def index():
-    return 'Olá, Flask!'
+    return render_template('home/index.jinja')
