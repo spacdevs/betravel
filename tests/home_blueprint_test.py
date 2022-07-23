@@ -1,16 +1,24 @@
+from ward import test
 from flask import url_for
 
 from tests.factories.post import PostFactory
+from tests.fixtures import browser
 
-def test_visitors_view_home_page_successfully(browser):
-    browser.visit(url_for('home.index'))
+
+@test("Visitors access home page with successfully")
+def _(browser=browser):
+    browser.visit(url_for("home.index"))
 
     assert browser.status_code == 200
     assert browser.is_text_present("Viagens")
-    assert browser.is_text_present("&COPY; Todos os direitos reservados. Be Travel 2022")
+    assert browser.is_text_present(
+        "&COPY; Todos os direitos reservados. Be Travel 2022"
+    )
 
-def test_visitors_view_menu(browser):
-    browser.visit(url_for('home.index'))
+
+@test("Visitors access home page and view menu")
+def _(browser=browser):
+    browser.visit(url_for("home.index"))
 
     assert browser.is_text_present("Be Travel")
     assert browser.is_text_present("Nova Postagem")
@@ -19,22 +27,28 @@ def test_visitors_view_menu(browser):
     assert browser.is_text_present("Olá, Marcus Pereira")
     assert browser.is_text_present("Sair")
 
-def test_and_view_posts(browser):
+
+@test("Visitors access home page and view posts")
+def _(browser=browser):
     post = PostFactory()
 
-    browser.visit(url_for('home.index'))
+    browser.visit(url_for("home.index"))
 
     assert browser.is_text_present(post.title)
 
-def test_and_not_view_unplushed_posts(browser):
+
+@test("Visitors access home page and not view unplublished posts")
+def _(browser=browser):
     post = PostFactory(title="Visitando a Apple em New York", published=False)
 
-    browser.visit(url_for('home.index'))
+    browser.visit(url_for("home.index"))
 
     assert browser.is_text_not_present("Visitando a Apple em New York")
     assert browser.is_text_present("Sem posts cadastrado no momento")
 
-def test_and_not_view_posts_without_registered(browser):
-    browser.visit(url_for('home.index'))
+
+@test("Visitors access home page and not view posts without registered")
+def _(browser=browser):
+    browser.visit(url_for("home.index"))
 
     assert browser.is_text_present("Sem posts cadastrado no momento")

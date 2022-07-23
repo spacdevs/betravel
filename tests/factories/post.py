@@ -6,6 +6,7 @@ from app.models import Post
 
 faker = Faker()
 
+
 class PostFactory(factory.alchemy.SQLAlchemyModelFactory):
     class Meta:
         model = Post
