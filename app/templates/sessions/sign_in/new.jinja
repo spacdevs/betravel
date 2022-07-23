@@ -14,12 +14,18 @@
               <div class="form-group">
                 {{ form.email.label }}
                 {{ form.email(class_='input-block') }}
+                {% for message in form.email.errors  %}
+                  <p>{{ form.email.label.text }} {{ message }} </p>
+                {% endfor %}
               </div>
             </div>
             <div class="col sm-12">
               <div class="form-group">
                 {{ form.password.label }}
                 {{ form.password(class_='input-block') }}
+                {% for message in form.email.errors  %}
+                  <p>{{ form.password.label.text }} {{ message }} </p>
+                {% endfor %}
               </div>
             </div>
             <div class="col sm-12">

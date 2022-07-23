@@ -31,4 +31,5 @@ def create():
         login_user(user)
         flash(f"Bem-vindo de volta, {user.name}")
         return redirect(url_for("home.index"))
+
     return render_template("sessions/sign_in/new.jinja", form=form)

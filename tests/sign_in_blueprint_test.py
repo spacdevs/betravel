@@ -22,3 +22,14 @@ def _(browser=browser):
     assert browser.is_text_present("Nova postagem")
     assert browser.is_text_present("Nova categoria")
     assert browser.is_text_present("Sair")
+
+
+@test("can't be blank")
+def _(browser=browser):
+    browser.visit(url_for("signin.new"))
+    browser.fill("email", "")
+    browser.fill("password", "")
+    browser.find_by_value("Acessar").click()
+
+    assert browser.is_text_present("E-mail é obrigatório")
+    assert browser.is_text_present("Senha é obrigatório")
