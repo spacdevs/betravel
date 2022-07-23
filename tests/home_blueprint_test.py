@@ -5,7 +5,7 @@ from tests.factories.post import PostFactory
 from tests.fixtures import browser
 
 
-@test("Visitors access home page with successfully")
+@test("visitors access home page with successfully")
 def _(browser=browser):
     browser.visit(url_for("home.index"))
 
@@ -16,7 +16,7 @@ def _(browser=browser):
     )
 
 
-@test("Visitors access home page and view menu")
+@test("visitors access home page and view menu")
 def _(browser=browser):
     browser.visit(url_for("home.index"))
 
@@ -28,7 +28,7 @@ def _(browser=browser):
     assert browser.is_text_present("Sair")
 
 
-@test("Visitors access home page and view posts")
+@test("visitors access home page and view posts")
 def _(browser=browser):
     post = PostFactory()
 
@@ -37,7 +37,7 @@ def _(browser=browser):
     assert browser.is_text_present(post.title)
 
 
-@test("Visitors access home page and not view unplublished posts")
+@test("visitors access home page and not view unplublished posts")
 def _(browser=browser):
     post = PostFactory(title="Visitando a Apple em New York", published=False)
 
@@ -47,7 +47,7 @@ def _(browser=browser):
     assert browser.is_text_present("Sem posts cadastrado no momento")
 
 
-@test("Visitors access home page and not view posts without registered")
+@test("visitors access home page and not view posts without registered")
 def _(browser=browser):
     browser.visit(url_for("home.index"))
 

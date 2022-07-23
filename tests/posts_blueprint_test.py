@@ -1,9 +1,12 @@
+from ward import test
 from flask import url_for
 
 from tests.factories.post import PostFactory
+from tests.fixtures import browser
 
 
-def test_successfully(browser):
+@test("visitors view post details")
+def _(browser=browser):
     post = PostFactory(title="Sobrevivendo ao frio da alemanha em Janeiro")
 
     browser.visit(url_for("home.index"))
