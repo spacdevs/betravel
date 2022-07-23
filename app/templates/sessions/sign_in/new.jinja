@@ -1,0 +1,35 @@
+{% extends 'shared/layout.jinja' %}
+
+{% block title %} Acesso ao sistema {% endblock %}
+
+{% block content %}
+  <section class="section margin-top-large">
+    <div class="container container-lg">
+      <form action="{{ url_for('signin.create') }}", method='post'>
+        {{ form.csrf_token }}
+        <fieldset>
+          <legend>Acesso ao sistema</legend>
+          <div class="row">
+            <div class="col sm-12">
+              <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class_='input-block') }}
+              </div>
+            </div>
+            <div class="col sm-12">
+              <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class_='input-block') }}
+              </div>
+            </div>
+            <div class="col sm-12">
+              <div class="form-group text-right">
+                {{ form.submit(class_='paper-btn btn-success') }}
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+{% endblock %}

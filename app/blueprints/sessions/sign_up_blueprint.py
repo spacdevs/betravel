@@ -30,5 +30,5 @@ def create():
 
         flash("Registro efetuado com sucesso!")
         return redirect(url_for("home.index"))
-    
+
     return render_template("sessions/sign_up/new.jinja", form=form)
