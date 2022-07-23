@@ -6,4 +6,6 @@ EXTENSIONS = ['app.routes:init_app', 'app.extensions:init_app']
 SQLALCHEMY_DATABASE_URI = 'sqlite:///development.sqlite'
 
 [testing]
+WTF_CSRF_ENABLED = false
+SECRET_KEY = 'abc'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///'
