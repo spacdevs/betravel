@@ -15,5 +15,7 @@ def _(browser=browser):
 
     assert browser.url == url_for("home.index")
     assert browser.is_text_present("Registro efetuado com sucesso!")
-    assert browser.is_text_present("Olá, Marcus Pereira")
-    assert browser.is_text_present("Sair")
+    assert browser.is_text_not_present("Olá, Marcus Pereira")
+    assert browser.is_text_not_present("Nova Postagem")
+    assert browser.is_text_not_present("Nova Categoria")
+    assert browser.is_text_not_present("Sair")

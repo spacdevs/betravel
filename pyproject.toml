@@ -11,6 +11,7 @@ urllib3 = "^1.26.10"
 Flask-SQLAlchemy = "^2.5.1"
 dynaconf = "^3.1.9"
 Flask-WTF = "^1.0.1"
+Flask-Login = "^0.6.1"
 
 [tool.poetry.dev-dependencies]
 python-dotenv = "^0.20.0"

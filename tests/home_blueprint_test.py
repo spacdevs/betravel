@@ -21,11 +21,12 @@ def _(browser=browser):
     browser.visit(url_for("home.index"))
 
     assert browser.is_text_present("Be Travel")
-    assert browser.is_text_present("Nova Postagem")
-    assert browser.is_text_present("Nova Categoria")
     assert browser.is_text_present("Entrar")
-    assert browser.is_text_present("Olá, Marcus Pereira")
-    assert browser.is_text_present("Sair")
+    assert browser.is_text_present("Cadastrar")
+    assert browser.is_text_not_present("Olá, Marcus Pereira")
+    assert browser.is_text_not_present("Nova Postagem")
+    assert browser.is_text_not_present("Nova Categoria")
+    assert browser.is_text_not_present("Sair")
 
 
 @test("visitors access home page and view posts")
