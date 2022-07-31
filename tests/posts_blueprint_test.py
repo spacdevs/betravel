@@ -10,9 +10,7 @@ def _(browser=browser):
     post = PostFactory(title="Sobrevivendo ao frio da alemanha em Janeiro")
 
     browser.visit(url_for("home.index"))
-    browser.links.find_by_text(
-        "Sobrevivendo ao frio da alemanha em Janeiro"
-    ).click()
+    browser.links.find_by_text("Sobrevivendo ao frio da alemanha em Janeiro").click()
 
     assert browser.status_code == 200
     assert browser.is_text_present(post.title)

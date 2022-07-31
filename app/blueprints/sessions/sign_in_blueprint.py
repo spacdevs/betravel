@@ -22,9 +22,7 @@ def create():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if not user or not check_password_hash(
-            user.password, form.password.data
-        ):
+        if not user or not check_password_hash(user.password, form.password.data):
             flash("Usúario ou senha estão incorretas")
             return redirect(url_for(".new"))
 
