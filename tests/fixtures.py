@@ -24,11 +24,13 @@ def browser():
         db.drop_all()
 
 
-@fixture
-def login_as(user,browser=browser):
-    breakpoint()
-    # browser.visit("/")
-    # browser.find_by_text("Entrar").click()
-    # browser.fill("email", user.email)
-    # browser.fill("password", user.password)
-    # browser.find_by_value("Acessar").click()
+def login_as(user, browser):
+    password = user.password
+    db.session.add(user)
+    db.session.commit()
+
+    browser.visit("/")
+    browser.find_by_text("Entrar").click()
+    browser.fill("email", user.email)
+    browser.fill("password", password)
+    browser.find_by_value("Acessar").click()

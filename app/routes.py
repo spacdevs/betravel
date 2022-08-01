@@ -11,4 +11,3 @@ def init_app(app):
     app.register_blueprint(sign_in)
     app.register_blueprint(sign_up)
     app.register_blueprint(categories)
- 

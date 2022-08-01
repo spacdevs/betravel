@@ -5,17 +5,17 @@
 {% block content %}
   <section class="section margin-top-large">
     <div class="container container-lg">
-      <form action="", method='post'>
+      <form action="{{ url_for('categories.create') }}", method='post'>
         {{ form.csrf_token }}
         <fieldset>
           <legend>Cadastro de categoria</legend>
           <div class="row">
             <div class="col sm-12">
               <div class="form-group">
-                {{ form.title.label }}
-                {{ form.title(class_='input-block') }}
-                {% for message in form.title.errors  %}
-                  <p>{{ form.title.label.text }} {{ message }} </p>
+                {{ form.name.label }}
+                {{ form.name(class_='input-block') }}
+                {% for message in form.name.errors  %}
+                  <p>{{ form.name.label.text }} {{ message }} </p>
                 {% endfor %}
               </div>
             </div>

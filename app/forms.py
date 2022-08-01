@@ -3,6 +3,11 @@ from wtforms.fields import EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 
+class CategoryForm(FlaskForm):
+    name = EmailField("Nome", validators=[DataRequired(message="é obrigatório")])
+    submit = SubmitField("Cadastrar")
+
+
 class SignInForm(FlaskForm):
     email = EmailField(
         "E-mail",

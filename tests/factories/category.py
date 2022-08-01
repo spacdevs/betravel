@@ -2,17 +2,15 @@ import factory
 from faker import Faker
 
 from app.extensions import db
-from app.models import User
+from app.models import Category
 
 faker = Faker()
 
 
-class UserFactory(factory.alchemy.SQLAlchemyModelFactory):
+class CategoryFactory(factory.alchemy.SQLAlchemyModelFactory):
     class Meta:
-        model = User
+        model = Category
         sqlalchemy_session = db.session
         sqlalchemy_session_persistence = "commit"
 
-    name = faker.name()
-    email = faker.email()
-    password = faker.password()
+    name = faker.text()
