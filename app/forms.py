@@ -1,10 +1,34 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import EmailField, PasswordField, StringField, SubmitField
+from wtforms.fields import (
+    BooleanField,
+    EmailField,
+    PasswordField,
+    StringField,
+    SubmitField,
+    TextAreaField,
+    SelectField,
+)
 from wtforms.validators import DataRequired, Length
+
+from app.models import Category
+
+
+class PostForm(FlaskForm):
+    title = StringField("Título", validators=[DataRequired(message="é obrigatório")])
+    text = TextAreaField("Texto", validators=[DataRequired(message="é obrigatório")])
+    publish = BooleanField("Publicar")
+    submit = SubmitField("Cadastrar")
+    categories = SelectField("Categorias", coerce=int, validators=[DataRequired()])
+
+    def __init__(self):
+        super(PostForm, self).__init__()
+        self.categories.choices = [
+            (category.id, category.name) for category in Category.query.all()
+        ]
 
 
 class CategoryForm(FlaskForm):
-    name = EmailField("Nome", validators=[DataRequired(message="é obrigatório")])
+    name = StringField("Nome", validators=[DataRequired(message="é obrigatório")])
     submit = SubmitField("Cadastrar")
 
 

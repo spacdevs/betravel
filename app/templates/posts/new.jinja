@@ -1,0 +1,50 @@
+{% extends 'shared/layout.jinja' %}
+
+{% block title %} Cadastro de post {% endblock %}
+
+{% block content %}
+  <section class="section margin-top-large">
+    <div class="container container-lg">
+      <form action="{{ url_for('posts.create') }}", method='post'>
+        {{ form.csrf_token }}
+        <fieldset>
+          <legend>Cadastro de post</legend>
+          <div class="row">
+            <div class="col sm-12">
+              <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class_='input-block') }}
+                {% for message in form.title.errors  %}
+                  <p>{{ form.title.label.text }} {{ message }} </p>
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                {{ form.categories.label }}
+                {{ form.categories(class_='input-block') }}
+                {% for message in form.categories.errors  %}
+                  <p>{{ form.categories.label.text }} {{ message }} </p>
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                {{ form.text.label }}
+                {{ form.text(class_='input-block') }}
+                {% for message in form.text.errors  %}
+                  <p>{{ form.text.label.text }} {{ message }} </p>
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                {{ form.publish.label }}
+                {{ form.publish(class_='input-block') }}
+              </div>
+            </div>
+            <div class="col sm-12">
+              <div class="form-group text-right">
+                {{ form.submit(class_='paper-btn btn-success') }}
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+{% endblock %}
