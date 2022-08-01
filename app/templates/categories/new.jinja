@@ -1,0 +1,32 @@
+{% extends 'shared/layout.jinja' %}
+
+{% block title %} Cadastro de categoria {% endblock %}
+
+{% block content %}
+  <section class="section margin-top-large">
+    <div class="container container-lg">
+      <form action="", method='post'>
+        {{ form.csrf_token }}
+        <fieldset>
+          <legend>Cadastro de categoria</legend>
+          <div class="row">
+            <div class="col sm-12">
+              <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class_='input-block') }}
+                {% for message in form.title.errors  %}
+                  <p>{{ form.title.label.text }} {{ message }} </p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col sm-12">
+              <div class="form-group text-right">
+                {{ form.submit(class_='paper-btn btn-success') }}
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+{% endblock %}

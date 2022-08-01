@@ -14,7 +14,7 @@
         {% if current_user.is_authenticated %}
           <li>Olá, {{ current_user.name }}</li>
           <li><a href="/new-post.html">Nova postagem</a></li>
-          <li><a href="/new-category.html">Nova categoria</a></li>
+          <li><a href="{{ url_for('categories.new') }}">Nova categoria</a></li>
           <li><a href="/">Sair</a></li>
         {% else %}
           <li><a href="{{ url_for('signin.new') }}">Entrar</a></li>
