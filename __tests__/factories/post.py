@@ -17,6 +17,6 @@ class PostFactory(factory.alchemy.SQLAlchemyModelFactory):
 
     title = faker.text()
     text = faker.paragraph()
-    published = True
+    publish = True
     author = factory.SubFactory(UserFactory)
     category = factory.SubFactory(CategoryFactory)

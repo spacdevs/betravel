@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template, url_for, flash
+from flask_login import current_user
 
 from app.models import Post
 from app.forms import PostForm
@@ -29,8 +30,9 @@ def create():
         post = Post(
             title=form.title.data,
             text=form.text.data,
-            published=form.publish.data,
+            publish=form.publish.data,
             category_id=form.categories.data,
+            author=current_user
         )
         db.session.add(post)
         db.session.commit()

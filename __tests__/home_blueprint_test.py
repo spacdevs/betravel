@@ -40,7 +40,7 @@ def _(browser=browser):
 
 @test("visitors access home page and not view unplublished posts")
 def _(browser=browser):
-    post = PostFactory(title="Visitando a Apple em New York", published=False)
+    post = PostFactory(title="Visitando a Apple em New York", publish=False)
 
     browser.visit(url_for("home.index"))
 

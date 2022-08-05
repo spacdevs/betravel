@@ -33,7 +33,7 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    published = db.Column(db.Boolean, default=False)
+    publish = db.Column(db.Boolean, default=False)
     text = db.Column(db.Text, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
