@@ -11,10 +11,13 @@ def get_user(user_id):
 
 
 class User(db.Model, UserMixin):
+    __tablename__ = "users"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(84), nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
+    posts = db.relationship("Post", backref="author", uselist=True)
 
     def __repr__(self) -> str:
         return self.name
@@ -26,17 +29,22 @@ def user_before_commit(mapper, connection, target):
 
 
 class Post(db.Model):
+    __tablename__ = "posts"
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     published = db.Column(db.Boolean, default=False)
     text = db.Column(db.Text, nullable=False)
-    category_id = db.Column(db.Integer, db.ForeignKey("category.id"), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     def __repr__(self) -> str:
         return self.title
 
 
 class Category(db.Model):
+    __tablename__ = "categories"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     posts = db.relationship("Post", backref="category", uselist=True)
