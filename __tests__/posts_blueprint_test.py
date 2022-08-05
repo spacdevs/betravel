@@ -1,10 +1,10 @@
 from ward import test
 from flask import url_for
-from tests.factories.category import CategoryFactory
+from __tests__.factories.category import CategoryFactory
 
-from tests.factories.post import PostFactory
-from tests.factories.user import UserFactory
-from tests.fixtures import browser, login_as
+from __tests__.factories.post import PostFactory
+from __tests__.factories.user import UserFactory
+from __tests__.fixtures import browser, login_as
 
 
 @test("visitors view post details")

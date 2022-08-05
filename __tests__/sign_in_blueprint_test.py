@@ -2,8 +2,8 @@ from ward import test
 from flask import url_for
 from werkzeug.security import generate_password_hash
 
-from tests.fixtures import browser
-from tests.factories.user import UserFactory
+from __tests__.fixtures import browser
+from __tests__.factories.user import UserFactory
 
 
 @test("visitors can do sign in")

@@ -1,7 +1,7 @@
 from ward import test
 from flask import url_for
 
-from tests.fixtures import browser
+from __tests__.fixtures import browser
 
 
 @test("visitors can do sign up")

@@ -1,8 +1,8 @@
 from ward import test
 from flask import url_for
 
-from tests.factories.post import PostFactory
-from tests.fixtures import browser
+from __tests__.factories.post import PostFactory
+from __tests__.fixtures import browser
 
 
 @test("visitors access home page with successfully")
