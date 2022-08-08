@@ -18,7 +18,7 @@ class SignupController:
             user = User(
                 name=form.name.data,
                 email=form.email.data,
-                password=generate_password_hash(form.password.data),
+                password=form.password.data,
             )
             db.session.add(user)
             db.session.commit()

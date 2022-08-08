@@ -1,12 +1,9 @@
-from flask import Blueprint, flash, redirect, render_template, url_for
+from flask import flash, redirect, render_template, url_for
 from flask_login import login_user
 from werkzeug.security import check_password_hash
 
 from app.forms import SignInForm
 from app.models import User
-
-
-sign_in = Blueprint("signin", __name__)
 
 
 class SigninController:
