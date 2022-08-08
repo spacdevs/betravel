@@ -8,6 +8,7 @@ from wtforms.fields import (
     TextAreaField,
     SelectField,
 )
+from flask_wtf.file import FileField, FileAllowed, FileRequired, FileStorage
 from wtforms.validators import DataRequired, Length
 
 from app.models import Category
