@@ -1,13 +1,8 @@
-from app.blueprints.home_blueprint import home
-from app.blueprints.posts_blueprint import posts
-from app.blueprints.categories_blueprint import categories
-from app.blueprints.sessions.sign_up_blueprint import sign_up
-from app.blueprints.sessions.sign_in_blueprint import sign_in
+from mvc_flask import Router
 
 
-def init_app(app):
-    app.register_blueprint(home)
-    app.register_blueprint(posts)
-    app.register_blueprint(sign_in)
-    app.register_blueprint(sign_up)
-    app.register_blueprint(categories)
+Router.get("/", "home#index")
+Router.all("posts", only="show new create")
+Router.all("categories", only="new create")
+Router.all("signup", only="new create")
+Router.all("signin", only="new create")

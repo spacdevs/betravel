@@ -2,8 +2,8 @@ from ward import test
 from flask import url_for
 from app.models import Category
 
-from tests.factories.user import UserFactory
-from tests.fixtures import browser, login_as as login_fixture
+from __tests__.factories.user import UserFactory
+from __tests__.fixtures import browser, login_as as login_fixture
 
 
 @test("user create category")

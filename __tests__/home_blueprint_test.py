@@ -1,8 +1,8 @@
 from ward import test
 from flask import url_for
 
-from tests.factories.post import PostFactory
-from tests.fixtures import browser
+from __tests__.factories.post import PostFactory
+from __tests__.fixtures import browser
 
 
 @test("visitors access home page with successfully")
@@ -40,7 +40,7 @@ def _(browser=browser):
 
 @test("visitors access home page and not view unplublished posts")
 def _(browser=browser):
-    post = PostFactory(title="Visitando a Apple em New York", published=False)
+    post = PostFactory(title="Visitando a Apple em New York", publish=False)
 
     browser.visit(url_for("home.index"))
 

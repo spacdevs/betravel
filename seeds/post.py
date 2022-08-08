@@ -14,7 +14,7 @@ class PostSeeder(Seeder):
             post = Post(
                 title=faker.paragraph(),
                 text=faker.text(),
-                published=True,
+                publish=True,
                 category=category,
                 author=user,
             )

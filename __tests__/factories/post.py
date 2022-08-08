@@ -3,7 +3,8 @@ from faker import Faker
 
 from app.extensions import db
 from app.models import Post
-from tests.factories.category import CategoryFactory
+from __tests__.factories.category import CategoryFactory
+from __tests__.factories.user import UserFactory
 
 faker = Faker()
 
@@ -16,5 +17,6 @@ class PostFactory(factory.alchemy.SQLAlchemyModelFactory):
 
     title = faker.text()
     text = faker.paragraph()
-    published = True
+    publish = True
+    author = factory.SubFactory(UserFactory)
     category = factory.SubFactory(CategoryFactory)
