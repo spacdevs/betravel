@@ -1,6 +1,7 @@
 [default]
 SECRET_KEY = 'abc'
 SQLALCHEMY_TRACK_MODIFICATIONS = false
+UPLOAD_FOLDER = 'uploads'
 EXTENSIONS = ['app.extensions:init_app']
 
 [development]

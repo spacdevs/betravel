@@ -4,7 +4,12 @@
   <h1>Viagens</h1>
   {% if posts %}
     {% for post in posts %}
-      <a href="{{ url_for('posts.show', id=post.id) }}">{{ post.title }}</a>
+      <a href="{{ url_for('posts.show', id=post.id) }}">
+        {% if post.image_name %} 
+          <img src="{{ url_for('images.storage', name=post.image_name) }}" />
+        {% endif %}
+        {{ post.title }}
+      </a>
     {% endfor %} 
   {% else %}
   <p>Sem posts cadastrado no momento</p>

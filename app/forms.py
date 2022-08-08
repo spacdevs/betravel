@@ -21,6 +21,7 @@ class PostForm(FlaskForm):
     text = TextAreaField(
         "Texto", validators=[DataRequired(message="é obrigatório")]
     )
+    image = FileField("Capa", validators=[FileRequired()])
     publish = BooleanField("Publicar")
     submit = SubmitField("Cadastrar")
     categories = SelectField(

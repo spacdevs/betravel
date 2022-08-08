@@ -1,4 +1,6 @@
-from flask import redirect, render_template, url_for, flash
+import os
+from flask import redirect, render_template, url_for, flash, current_app
+from werkzeug.utils import secure_filename
 from flask_login import current_user
 
 from app.models import Post
@@ -19,17 +21,21 @@ class PostsController:
         form = PostForm()
 
         if form.validate_on_submit():
+            f = form.image.data
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(current_app.config["UPLOAD_FOLDER"], filename))
             post = Post(
                 title=form.title.data,
                 text=form.text.data,
+                image_name=filename,
                 publish=form.publish.data,
                 category_id=form.categories.data,
                 author=current_user,
             )
+
             db.session.add(post)
             db.session.commit()
 
             flash("Post cadastrado com sucesso")
             return redirect(url_for("home.index"))
-
         return render_template("posts/new.jinja", form=form)

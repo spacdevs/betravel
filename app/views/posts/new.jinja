@@ -5,7 +5,7 @@
 {% block content %}
   <section class="section margin-top-large">
     <div class="container container-lg">
-      <form action="{{ url_for('posts.create') }}", method='post'>
+      <form action="{{ url_for('posts.create') }}", method='post' enctype="multipart/form-data">
         {{ form.csrf_token }}
         <fieldset>
           <legend>Cadastro de post</legend>
@@ -16,6 +16,13 @@
                 {{ form.title(class_='input-block') }}
                 {% for message in form.title.errors  %}
                   <p>{{ form.title.label.text }} {{ message }} </p>
+                {% endfor %}
+              </div>
+              <div class="form-group">
+                {{ form.image.label }}
+                {{ form.image(class_='input-block') }}
+                {% for message in form.image.errors  %}
+                  <p>{{ form.image.label.text }} {{ message }} </p>
                 {% endfor %}
               </div>
               <div class="form-group">
