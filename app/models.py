@@ -35,7 +35,9 @@ class Post(db.Model):
     title = db.Column(db.String(100), nullable=False)
     publish = db.Column(db.Boolean, default=False)
     text = db.Column(db.Text, nullable=False)
-    category_id = db.Column(db.Integer, db.ForeignKey("categories.id"), nullable=False)
+    category_id = db.Column(
+        db.Integer, db.ForeignKey("categories.id"), nullable=False
+    )
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     def __repr__(self) -> str:

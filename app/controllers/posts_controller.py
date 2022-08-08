@@ -24,7 +24,7 @@ class PostsController:
                 text=form.text.data,
                 publish=form.publish.data,
                 category_id=form.categories.data,
-                author=current_user
+                author=current_user,
             )
             db.session.add(post)
             db.session.commit()

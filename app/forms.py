@@ -14,11 +14,17 @@ from app.models import Category
 
 
 class PostForm(FlaskForm):
-    title = StringField("Título", validators=[DataRequired(message="é obrigatório")])
-    text = TextAreaField("Texto", validators=[DataRequired(message="é obrigatório")])
+    title = StringField(
+        "Título", validators=[DataRequired(message="é obrigatório")]
+    )
+    text = TextAreaField(
+        "Texto", validators=[DataRequired(message="é obrigatório")]
+    )
     publish = BooleanField("Publicar")
     submit = SubmitField("Cadastrar")
-    categories = SelectField("Categorias", coerce=int, validators=[DataRequired()])
+    categories = SelectField(
+        "Categorias", coerce=int, validators=[DataRequired()]
+    )
 
     def __init__(self):
         super(PostForm, self).__init__()
@@ -28,14 +34,19 @@ class PostForm(FlaskForm):
 
 
 class CategoryForm(FlaskForm):
-    name = StringField("Nome", validators=[DataRequired(message="é obrigatório")])
+    name = StringField(
+        "Nome", validators=[DataRequired(message="é obrigatório")]
+    )
     submit = SubmitField("Cadastrar")
 
 
 class SignInForm(FlaskForm):
     email = EmailField(
         "E-mail",
-        validators=[DataRequired(message="é obrigatório"), Length(min=6, max=84)],
+        validators=[
+            DataRequired(message="é obrigatório"),
+            Length(min=6, max=84),
+        ],
     )
     password = PasswordField(
         "Senha", validators=[DataRequired(message="é obrigatório")]
@@ -46,11 +57,17 @@ class SignInForm(FlaskForm):
 class SignUpForm(FlaskForm):
     name = StringField(
         "Nome",
-        validators=[DataRequired(message="é obrigatório"), Length(min=6, max=120)],
+        validators=[
+            DataRequired(message="é obrigatório"),
+            Length(min=6, max=120),
+        ],
     )
     email = EmailField(
         "E-mail",
-        validators=[DataRequired(message="é obrigatório"), Length(min=6, max=84)],
+        validators=[
+            DataRequired(message="é obrigatório"),
+            Length(min=6, max=84),
+        ],
     )
     password = PasswordField(
         "Senha", validators=[DataRequired(message="é obrigatório")]
