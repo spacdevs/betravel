@@ -1,7 +1,7 @@
 [default]
 SECRET_KEY = 'abc'
 SQLALCHEMY_TRACK_MODIFICATIONS = false
-EXTENSIONS = ['app.routes:init_app', 'app.extensions:init_app']
+EXTENSIONS = ['app.extensions:init_app']
 
 [development]
 SQLALCHEMY_DATABASE_URI = 'sqlite:///development.sqlite'
