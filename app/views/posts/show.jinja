@@ -3,7 +3,17 @@
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block content %}
-  <h1>{{ post.title }}</h1>
-
-  <p>{{ post.text }}</p>
+<section class="section margin-top-large">
+  <div class="container container-lg">
+    <a href="post.html" class="text-primary">
+      {% if post.image_name %} 
+        <img src="{{ url_for('images.storage', name=post.image_name) }}" />
+      {% endif %}
+      <h4 class="text-left">
+        {{ post.title }}
+      </h4>
+      <p>{{ post.text }}</p>
+    </a>
+  </div>
+</section>
 {% endblock %}
