@@ -24,6 +24,25 @@ def _(browser=browser):
 
 
 @test("user create post", tags=["post"])
+def _(browser=browser):
+    user = UserFactory.build(password="123456")
+    category = CategoryFactory.create(name="Europa")
+
+    login_as(user, browser)
+    browser.visit(url_for("home.index"))
+    browser.links.find_by_text("Nova postagem").click()
+    browser.fill("title", "Sobrevivendo ao frio da alemanha em Janeiro")
+    browser.fill("text", "**Primeiro precisamos nos agasalhar bastante...**")
+    browser.attach_file("image", "grecia.jpeg")
+    browser.select("categories", str(category.id))
+    browser.check("publish")
+    browser.find_by_value("Cadastrar").click()
+
+    assert browser.status_code == 200
+    assert browser.url == url_for("home.index")
+
+
+@test("user create post without splinter", tags=["post"])
 def _(client=client):
     user = UserFactory.create(password="123456")
     category = CategoryFactory.create(name="Europa")

@@ -35,7 +35,6 @@ class PostsController:
 
             db.session.add(post)
             db.session.commit()
-
             flash("Post cadastrado com sucesso")
-            return redirect(url_for("home.index"))
+            return redirect(url_for("home.index"), 302)
         return render_template("posts/new.jinja", form=form)
