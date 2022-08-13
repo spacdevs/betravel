@@ -1,7 +1,7 @@
 import os
 from flask import redirect, render_template, url_for, flash, current_app
 from werkzeug.utils import secure_filename
-from flask_login import current_user
+from flask_login import current_user, login_required
 
 from app.models import Post
 from app.forms import PostForm
@@ -13,10 +13,12 @@ class PostsController:
         post = Post.query.get(id)
         return render_template("posts/show.jinja", post=post)
 
+    @login_required
     def new(self):
         form = PostForm()
         return render_template("posts/new.jinja", form=form)
 
+    @login_required
     def create(self):
         form = PostForm()
 
