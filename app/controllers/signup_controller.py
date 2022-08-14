@@ -1,5 +1,4 @@
 from flask import flash, redirect, render_template, url_for
-from werkzeug.security import generate_password_hash
 
 from app.forms import SignUpForm
 from app.extensions import db

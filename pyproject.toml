@@ -23,6 +23,7 @@ factory-boy = "^3.2.1"
 ward = "^0.66.1-beta.0"
 Flask-Seeder = "^1.2.0"
 black = {version = "^22.6.0", allow-prereleases = true}
+autoflake = "^1.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

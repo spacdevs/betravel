@@ -1,6 +1,5 @@
 from ward import test
 from flask import url_for
-from werkzeug.security import generate_password_hash
 
 from __tests__.fixtures import browser
 from __tests__.factories.user import UserFactory
