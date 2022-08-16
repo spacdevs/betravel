@@ -451,6 +451,7 @@ description = "browser abstraction for web acceptance testing"
 category = "dev"
 optional = false
 python-versions = "*"
+develop = false
 
 [package.dependencies]
 cssselect = {version = "*", optional = true, markers = "extra == \"flask\""}
@@ -464,6 +465,12 @@ flask = ["Flask (>=2.0.2)", "lxml (>=4.2.4)", "cssselect"]
 selenium3 = ["selenium (>=3.141.0,<4.0)"]
 selenium4 = ["selenium (>=4.1.0,<5.0)"]
 "zope.testbrowser" = ["zope.testbrowser (>=5.5.1)", "lxml (>=4.2.4)", "cssselect"]
+
+[package.source]
+type = "git"
+url = "https://github.com/cobrateam/splinter.git"
+reference = "master"
+resolved_reference = "7426da92fbac45f1fb092eff01bca97d2095520c"
 
 [[package]]
 name = "sqlalchemy"
@@ -567,7 +574,7 @@ email = ["email-validator"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "48f1723f5fcffbb3adbf812c3bf7a7e46ae2ac505b3374a5ef35ae48d93c919e"
+content-hash = "27969750a50279b7c5ad94c96273eec50a85e870bc391c8734994f7bc163dc8f"
 
 [metadata.files]
 alembic = []

@@ -17,13 +17,13 @@ mvc-flask = "^2.4.0"
 
 [tool.poetry.dev-dependencies]
 python-dotenv = "^0.20.0"
-splinter = {version = "^0.18.1", extras = ["flask"]}
 Faker = "^13.15.0"
 factory-boy = "^3.2.1"
 ward = "^0.66.1-beta.0"
 Flask-Seeder = "^1.2.0"
 black = {version = "^22.6.0", allow-prereleases = true}
 autoflake = "^1.4"
+splinter = {git = "https://github.com/cobrateam/splinter.git", extras = ["flask"]}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
